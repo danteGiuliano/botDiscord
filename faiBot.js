@@ -6,18 +6,18 @@ var prefijo = configuracion.prefijo;
 /*
 Script para iniciar el bot */
 
-client.on("ready",() => {
+client.on("ready", () => {
     console.log("Fai bot iniciado  :D");
+    client.user.setPresence({
+        status: "online",
+        game: {
+            name: "-help|asdsa",
+            type: "PLAYING"
+        }
+    });
 });
-//El client representa al bot, y el menssage es lo que se pasa por parametro.
-client.on("message",(message) => {
-        /*las siguientes 2 sentencias evitan bucles infinitos entre bots y que no reaccione
-        Si no se usa el prefijo "-" */
-        if (!message.content.startsWith(prefijo)) return;
-        if (message.author.bot) return;
-        /*Buscare al comando deseado por el usuario en mi protocolo de mensajes.
-        si no se usa el prefijo de config, el bot no  ejecutara la funcion*/
-        protocolo.mensajes(client);
-});
+/*Buscare al comando deseado por el usuario en mi protocolo de mensajes.
+si no se usa el prefijo de config, el bot no  ejecutara la funcion*/
+protocolo.mensajes(client);
 
 client.login(configuracion.token);
