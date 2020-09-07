@@ -8,10 +8,10 @@ Script para iniciar el bot */
 
 client.on("ready", () => {
     console.log("Fai bot iniciado  :D");
-    client.user.setPresence({
+    client.user.setStatus({
         status: "online",
         game: {
-            name: "-help|asdsa",
+            name: "-help|owo",
             type: "PLAYING"
         }
     });
